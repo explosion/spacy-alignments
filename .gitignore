@@ -47,7 +47,6 @@ Pipfile.lock
 *.egg
 .eggs
 MANIFEST
-Cargo.lock
 
 # Temporary files
 *.~*
