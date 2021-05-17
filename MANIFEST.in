@@ -1,3 +1,4 @@
+include Cargo.lock
 include Cargo.toml
 include LICENSE
 recursive-include src *
