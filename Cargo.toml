@@ -1,6 +1,6 @@
 [package]
 name = "spacy-alignments"
-version = "0.8.4"
+version = "0.8.5"
 authors = ["Explosion <contact@explosion.ai>"]
 edition = "2018"
 
