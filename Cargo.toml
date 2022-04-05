@@ -1,6 +1,6 @@
 [package]
 name = "spacy-alignments"
-version = "0.8.4"
+version = "0.8.5"
 authors = ["Explosion <contact@explosion.ai>"]
 edition = "2018"
 
@@ -8,7 +8,7 @@ edition = "2018"
 tokenizations = "0.4.2"
 
 [dependencies.pyo3]
-version = "^0.12.0"
+version = "^0.15.0"
 features = ["extension-module"]
 
 [lib]
