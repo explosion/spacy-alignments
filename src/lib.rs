@@ -3,10 +3,12 @@ use pyo3::prelude::*;
 use tokenizations::{get_alignments, get_charmap, Alignment, CharMap};
 
 #[pymodule]
-fn tokenizations(_py: Python, m: &PyModule) -> PyResult<()> {
-    m.add("__version__", "0.8.3")?;
+#[pyo3(name = "tokenizations")]
+fn tokenizations_(_py: Python, m: &PyModule) -> PyResult<()> {
+    m.add("__version__", "0.9.0")?;
 
-    #[pyfn(m, "get_alignments")]
+    #[pyfn(m)]
+    #[pyo3(name = "get_alignments")]
     pub fn get_alignments_py(
         _py: Python,
         a: Vec<&str>,
@@ -15,7 +17,8 @@ fn tokenizations(_py: Python, m: &PyModule) -> PyResult<()> {
         Ok(get_alignments(&a, &b))
     }
 
-    #[pyfn(m, "get_charmap")]
+    #[pyfn(m)]
+    #[pyo3(name = "get_charmap")]
     pub fn get_charmap_py(_py: Python, a: &str, b: &str) -> PyResult<(CharMap, CharMap)> {
         Ok(get_charmap(a, b))
     }
