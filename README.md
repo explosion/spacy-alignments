@@ -32,3 +32,9 @@ The only difference between this package and the original
 [`pytokenizations`](https://pypi.org/project/pytokenizations/) is that it
 switches the build system to `setuptools-rust` to make it easier for us at
 Explosion to build source and binary packages for a wider range of platforms.
+
+## Bug reports and other issues
+
+Please use [spaCy's issue tracker](https://github.com/explosion/spaCy/issues) to report a bug, or open a new thread on the
+[discussion board](https://github.com/explosion/spaCy/discussions)
+for any other issue.
