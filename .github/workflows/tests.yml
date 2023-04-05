@@ -11,7 +11,7 @@ on:
 
 env:
   MODULE_NAME: 'spacy_alignments'
-  RUN_MYPY: 'false'
+  RUN_MYPY: 'true'
 
 jobs:
   tests:
@@ -47,7 +47,7 @@ jobs:
 
       - name: Run mypy
         shell: bash
-        if: ${{ env.RUN_MYPY == 'true' }}
+        if: env.RUN_MYPY == 'true' && matrix.python_version != '3.6'
         run: |
           python -m mypy $MODULE_NAME
 

@@ -1,3 +1,4 @@
 setuptools-rust
 pytest
 hypothesis>=5.3.1,<7.0.0
+mypy>=0.990,<1.1.0; python_version >= "3.7"

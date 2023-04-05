@@ -60,7 +60,7 @@ VERSION_DEPRECATE_ERR_GET_ORIGINAL_SPANS = "0.8"
 @pytest.mark.skipif(
     not (
         VERSION_DEPRECATE_WARN_GET_ORIGINAL_SPANS
-        <= tokenizations.__version__
+        <= tokenizations.__version__  # type: ignore[attr-defined]
         < VERSION_DEPRECATE_ERR_GET_ORIGINAL_SPANS
     ),
     reason="deprecation check",
@@ -71,7 +71,7 @@ def test_warn_get_original_spans():
 
 
 @pytest.mark.skipif(
-    tokenizations.__version__ < VERSION_DEPRECATE_ERR_GET_ORIGINAL_SPANS,
+    tokenizations.__version__ < VERSION_DEPRECATE_ERR_GET_ORIGINAL_SPANS,  # type: ignore[attr-defined]
     reason="deprecation error check",
 )
 def test_error_get_original_spans():

@@ -1,4 +1,5 @@
 include Cargo.lock
 include Cargo.toml
 include LICENSE
+include spacy_alignments/py.typed
 recursive-include src *
