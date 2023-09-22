@@ -5,7 +5,7 @@ use tokenizations::{get_alignments, get_charmap, Alignment, CharMap};
 #[pymodule]
 #[pyo3(name = "tokenizations")]
 fn tokenizations_(_py: Python, m: &PyModule) -> PyResult<()> {
-    m.add("__version__", "0.9.0")?;
+    m.add("__version__", "0.9.1")?;
 
     #[pyfn(m)]
     #[pyo3(name = "get_alignments")]
