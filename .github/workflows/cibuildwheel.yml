@@ -25,6 +25,7 @@ jobs:
           CIBW_BEFORE_ALL_LINUX: curl -sSf https://sh.rustup.rs | sh -s -- -y
           CIBW_BEFORE_ALL_WINDOWS: rustup target add i686-pc-windows-msvc
           CIBW_ENVIRONMENT_LINUX: "PATH=$HOME/.cargo/bin:$PATH"
+          MACOSX_DEPLOYMENT_TARGET: 10.12
         with:
           package-dir: .
           output-dir: wheelhouse
