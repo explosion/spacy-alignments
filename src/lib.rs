@@ -2,26 +2,28 @@
 use pyo3::prelude::*;
 use tokenizations::{get_alignments, get_charmap, Alignment, CharMap};
 
+#[pyfunction]
+#[pyo3(name = "get_alignments")]
+pub fn get_alignments_py(
+    a: Vec<String>,
+    b: Vec<String>,
+) -> PyResult<(Alignment, Alignment)> {
+    let a_refs: Vec<&str> = a.iter().map(|s| s.as_str()).collect();
+    let b_refs: Vec<&str> = b.iter().map(|s| s.as_str()).collect();
+    Ok(get_alignments(&a_refs, &b_refs))
+}
+
+#[pyfunction]
+#[pyo3(name = "get_charmap")]
+pub fn get_charmap_py(a: String, b: String) -> PyResult<(CharMap, CharMap)> {
+    Ok(get_charmap(&a, &b))
+}
+
 #[pymodule]
 #[pyo3(name = "tokenizations")]
-fn tokenizations_(_py: Python, m: &PyModule) -> PyResult<()> {
+fn tokenizations_(m: &Bound<'_, PyModule>) -> PyResult<()> {
     m.add("__version__", "0.9.1")?;
-
-    #[pyfn(m)]
-    #[pyo3(name = "get_alignments")]
-    pub fn get_alignments_py(
-        _py: Python,
-        a: Vec<&str>,
-        b: Vec<&str>,
-    ) -> PyResult<(Alignment, Alignment)> {
-        Ok(get_alignments(&a, &b))
-    }
-
-    #[pyfn(m)]
-    #[pyo3(name = "get_charmap")]
-    pub fn get_charmap_py(_py: Python, a: &str, b: &str) -> PyResult<(CharMap, CharMap)> {
-        Ok(get_charmap(a, b))
-    }
-
+    m.add_function(wrap_pyfunction!(get_alignments_py, m)?)?;
+    m.add_function(wrap_pyfunction!(get_charmap_py, m)?)?;
     Ok(())
 }
