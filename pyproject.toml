@@ -10,7 +10,6 @@ build = "*"
 # No rust on musllinux
 skip = "pp* cp36* cp37* cp38* *-musllinux_i686"
 test-skip = ""
-free-threaded-support = false
 
 archs = ["native"]
 
