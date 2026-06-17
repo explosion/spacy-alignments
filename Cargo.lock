@@ -109,7 +109,7 @@ checksum = "e058ed56aee6d266fa5aa7809f99899b07d350c30aecd4f3d859b4f0d9dbbbdf"
 
 [[package]]
 name = "spacy-alignments"
-version = "0.9.1"
+version = "0.9.3"
 dependencies = [
  "pyo3",
  "tokenizations",
