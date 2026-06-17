@@ -18,7 +18,7 @@ env:
 jobs:
   tests:
     name: Test
-    if: github.repository_owner == 'explosion'
+    # if: github.repository_owner == 'explosion'
     strategy:
       fail-fast: false
       matrix:
