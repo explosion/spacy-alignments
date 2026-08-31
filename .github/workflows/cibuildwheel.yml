@@ -13,18 +13,21 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        # macos-13 is an intel runner, macos-14 is apple silicon
-        os: [ubuntu-latest, windows-latest, macos-13, macos-14, ubuntu-24.04-arm]
+        # The macos-13 intel runners have been retired; x86_64 wheels are
+        # cross-compiled on the macos-14 apple silicon runner instead.
+        os: [ubuntu-latest, windows-latest, macos-14, ubuntu-24.04-arm]
 
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
       - name: Build wheels
-        uses: pypa/cibuildwheel@9fcee9dd00ea649310eaae4735325d2b417226ae # v2.21.3
+        uses: pypa/cibuildwheel@294735312765b09d24a2fbec22660ce817587d55 # v4.1.0
         env:
           # Set up rust
           CIBW_BEFORE_ALL_LINUX: curl -sSf https://sh.rustup.rs | sh -s -- -y
           CIBW_BEFORE_ALL_WINDOWS: rustup target add i686-pc-windows-msvc
+          CIBW_BEFORE_ALL_MACOS: rustup target add x86_64-apple-darwin
           CIBW_ENVIRONMENT_LINUX: "PATH=$HOME/.cargo/bin:$PATH"
+          CIBW_ARCHS_MACOS: "arm64 x86_64"
           MACOSX_DEPLOYMENT_TARGET: 10.12
         with:
           package-dir: .
