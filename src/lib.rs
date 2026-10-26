@@ -22,7 +22,7 @@ pub fn get_charmap_py(a: String, b: String) -> PyResult<(CharMap, CharMap)> {
 #[pymodule]
 #[pyo3(name = "tokenizations")]
 fn tokenizations_(m: &Bound<'_, PyModule>) -> PyResult<()> {
-    m.add("__version__", "0.9.1")?;
+    m.add("__version__", "0.9.3")?;
     m.add_function(wrap_pyfunction!(get_alignments_py, m)?)?;
     m.add_function(wrap_pyfunction!(get_charmap_py, m)?)?;
     Ok(())
