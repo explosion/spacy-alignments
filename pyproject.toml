@@ -8,7 +8,7 @@ requires = [
 [tool.cibuildwheel]
 build = "*"
 # No rust on musllinux
-skip = "pp* cp36* cp37* cp38* *-musllinux_i686"
+skip = "pp* cp38* cp3??t-* *-musllinux_i686"
 test-skip = ""
 
 archs = ["native"]
