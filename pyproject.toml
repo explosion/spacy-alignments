@@ -51,6 +51,8 @@ musllinux-s390x-image = "musllinux_1_2"
 repair-wheel-command = "auditwheel repair -w {dest_dir} {wheel}"
 
 [tool.cibuildwheel.macos]
+# Rust's x86_64-apple-darwin target requires macOS 10.12+
+environment = { MACOSX_DEPLOYMENT_TARGET = "10.12" }
 repair-wheel-command = "delocate-wheel --require-archs {delocate_archs} -w {dest_dir} -v {wheel}"
 
 [tool.cibuildwheel.windows]
